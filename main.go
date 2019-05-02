@@ -21,6 +21,9 @@ func main() {
 
 
 func identicon(req *air.Request, res *air.Response) error {
+
+	res.Header.Set("Access-Control-Allow-Origin", "*")
+
 	buf := bytes.Buffer{}
 	err:= jpeg.Encode(
 		&buf,
