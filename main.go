@@ -6,12 +6,13 @@ import (
 	"github.com/aofei/cameron"
 	"image/jpeg"
 	"log"
+	"os"
 )
 
 var a = air.Default
 
 func main() {
-	a.Address = ":5000"// + os.Getenv("PORT")
+	a.Address = ":" + os.Getenv("PORT")
 	a.GET("/download/:Name", download)
 	a.GET("/:Name", identicon)
 	log.Fatal(a.Serve(), nil)
