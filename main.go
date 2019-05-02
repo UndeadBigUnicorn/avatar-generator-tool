@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"image/jpeg"
 	"log"
+	"os"
 
 	"github.com/aofei/air"
 	"github.com/aofei/cameron"
@@ -12,6 +13,7 @@ import (
 var a = air.Default
 
 func main() {
+	a.Address = ":" + os.Getenv("PORT")
 	a.GET("/:Name", identicon)
 	log.Fatal(a.Serve(), nil)
 }
